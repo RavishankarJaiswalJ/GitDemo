@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map</title>
+    <script>
+      result = ["one", "two", "three", "four"].map(function (
+        value,
+        index,
+        arr
+      ) {
+        return value.length;
+      });
+      console.log(result);
+      
+        //   Version ≥ 6
+        ["one", "two", "three", "four"].map((value) => value.length);
+
+      ["one", "two"].map(function (value, index, arr) {
+        console.log(this); // window (the default value in browsers)
+        return value.length;
+      });
+
+      // You can change it to any custom object like this:
+      ["one", "two"].map(
+        function (value, index, arr) {
+          console.log(this); // Object { documentation: "randomObject" }
+          return value.length;
+        },
+        {
+          documentation: "randomObject",
+        }
+      );
+
+    //   Filtering Object Arrays
+
+    
+    </script>
+  </head>
+  <body>
+    <h1>Javascript</h1>
+  </body>
+</html>

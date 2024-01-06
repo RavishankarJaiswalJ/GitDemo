@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter</title>
+    <script>
+      // even number sorting
+      var numberses = [2, 34, 33, 23, 45];
+      var even = numberses.filter((n) => {
+        return n % 2 == 0;
+      });
+      console.log(even);
+      console.log(typeof even);
+      // odd number sorting
+      var numbers = [20, 30, 33, 23, 40, 45];
+      var odd = numbers.filter((n) => {
+        return n % 2 !== 0;
+      });
+      console.log(odd);
+
+      // Version ≥ 6
+      //   let odd = numbers.filter((n) => n % 2 !== 0); // can be shortened to (n => n % 2)
+
+      var people = [
+        {
+          id: 1,
+          name: "John",
+          age: 28,
+        },
+        {
+          id: 2,
+          name: "Jane",
+          age: 31,
+        },
+        {
+          id: 3,
+          name: "Peter",
+          age: 55,
+          year: 2020,
+        },
+      ];
+      var young = people.filter(function (person) {
+        return person.age < 35;
+      });
+      console.log(young);
+      var youngId = people.filter(function (person) {
+        return person.id < 3;
+      });
+      console.log(youngId);
+      //   var name = people.filter(function(person) {
+      //     return person.year > 2019;
+      // });
+      //   console.log(name)
+      // Version ≥ 6
+      //   let young = people.filter((person) => person.age < 35);
+      var youngs = people.filter((obj) => {
+        var flag = false;
+        Object.values(obj).forEach((val) => {
+          if (String(val).indexOf("John") > -1) {
+            flag = true;
+            return;
+          }
+        });
+        if (flag) return obj;
+      });
+      console.log(youngs)
+    </script>
+  </head>
+  <body>
+    <h1>javascript Filter</h1>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+    <script>
+      var foo = "bar";
+
+      console.log("foo", "bar");
+      var intString = (5232).toString(); // "5232"
+      // var booleanString = false.toString(); // "false"
+      var objString = {}.toString(); // "[object Object]"
+      console.log(typeof intString);
+      console.log(typeof booleanString);
+      console.log(typeof objString);
+      arr = [1, 2, 3, 4, 5];
+      result = arr.reduce(function (a, b) {
+        return a + b;
+      });
+      console.log(result);
+
+      result1 = [2].reduce(function (a, b) {
+        console.log(a, b); // prints: 1 2
+        return a + b;
+      }, 1);
+      console.log(result1)
+
+//       Flatten Array of Objects
+// The example below shows how to flatten an array of objects into a single object.
+var array = [{
+ key: 'one',
+ value: 1
+}, {
+ key: 'two',
+ value: 2
+}, {
+ key: 'three',
+ value: 3
+}];
+// Version ≤ 5.1
+ result2 = array.reduce(function(obj, current) {
+ obj[current.key] = current.value;
+ return obj;
+}, {});
+// Version ≥ 6
+array.reduce((obj, current) => Object.assign(obj, {
+ [current.key]: current.value
+}), {});
+// Version ≥ 7
+array.reduce((obj, current) => ({...obj, [current.key]: current.value}), {});
+console.log(array)
+
+console.log(result2)
+
+function map(list, fn) {
+ return list.reduce(function(newList, item) {
+ return newList.concat(fn(item));
+ }, []);
+}
+
+result3=map([1,2,3],function(n){return n*n})
+console.log(result3)
+
+
+
+// result4=map([10,12,30,16,40,50,17],function(map){return map.reduce(function(a,b){return a+b})})
+// console.log(result4)
+
+// Version ≥ 5.1
+// Find Min or Max Value
+// We can use the accumulator to keep track of an array element as well. Here is an example leveraging this to find
+// the min value:
+var arrMin = [4, 2, 1, -10,-12, 9]
+result5=arrMin.reduce(function(a, b) {
+ return a < b ? a : b
+}, Infinity);
+console.log(result5)
+
+// var arrMin = [4, 2, 1, -10,-12, 9]
+// result5=arrMin.reduce(function(a, b) {
+//  return a < b ? a : b
+// }, arrMin.length);
+// console.log(result5)
+
+var arrMax = [4, 2, 1, 22,-10,-12, 9, 17]
+result6=arrMax.reduce(function(a, b) {
+ return a > b ? a : b
+}, arrMax.length);
+console.log(result6)
+
+// Find Unique Values
+// Here is an example that uses reduce to return the unique numbers to an array. An empty array is passed as the
+// second argument and is referenced by prev.
+var arr = [1, 2, 1, 5, 9, 5];
+// console.log(arr[2])
+result7 = arr.reduce((prev, number) => {
+ if(prev.indexOf(number) === -1) {
+ prev.push(number);
+ }
+ return prev;
+}, []);
+
+console.log(result7)
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+    <h1>Javascript</h1>
+  </body>
+</html>
